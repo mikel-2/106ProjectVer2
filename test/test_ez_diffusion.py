@@ -1,5 +1,6 @@
 import unittest
 from ez_diffusion import forward_eq, inverse_eq, compute_error
+import numpy as np
 
 class TestEZDiffusion(unittest.TestCase):
 
@@ -14,6 +15,9 @@ class TestEZDiffusion(unittest.TestCase):
         Robs, Mobs, Vobs = 0.75, 0.5, 0.1
         v_est, a_est, t_est = inverse_eq(Robs, Mobs, Vobs)
         self.assertAlmostEqual(v_est, 1.0, delta=0.5)
+
+    def test_zero_division_handling(self):
+        self.assertTrue(np.isnan(inverse_eq(1, 0.3, 0.1)[0]))
 
 if __name__ == '__main__':
     unittest.main()
