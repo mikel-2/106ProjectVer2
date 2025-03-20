@@ -1,7 +1,6 @@
 import numpy as np
 import csv
-from src.ez_diffusion import forward_eq, inverse_eq, compute_error
-
+from ez_diffusion import forward_eq, inverse_eq, compute_error
 
 def simulate_data(a, v, t, N):
     Rpred, Mpred, Vpred = forward_eq(a, v, t)
@@ -17,6 +16,8 @@ def run_simulation():
 
     for N in N_values:
         for _ in range(1000):  # 1000 repetitions for each N
+            print(f"Simulating N={N}, Iteration {_+1}")
+
             true_params = (np.random.uniform(0.5, 2),  # a
                            np.random.uniform(0.5, 2),  # v
                            np.random.uniform(0.1, 0.5))  # t
@@ -33,6 +34,8 @@ def run_simulation():
                 "Squared_Error": np.sum(squared_error)
             })
 
+    print(f"✅ Successfully generated {len(results)} rows of data")
+
 
     # Write results to CSV
     with open('data/results.csv', 'w', newline='') as csvfile:
@@ -41,6 +44,7 @@ def run_simulation():
         writer.writeheader()
         writer.writerows(results)
 
-    print(f"✅ Successfully generated {len(results)} rows of data")
-
     print("✅ Results saved to data/results.csv")
+
+if __name__ == "__main__":
+    run_simulation()

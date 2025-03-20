@@ -1,8 +1,7 @@
 #!/bin/bash
 
-echo "Running EZ Diffusion Model Simulation..."
+echo "🖖 Running EZ Diffusion Model Simulation..."
 
-# Run the Python script
-python3 src/ez_diffusion.py > data/results.csv
+python3 src/simulation.py
 
-echo "Results saved to data/results.csv"
+echo "✅ Results saved to data/results.csv"

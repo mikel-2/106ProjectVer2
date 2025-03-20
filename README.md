@@ -1,4 +1,4 @@
-# 106ProjectVer2
+# 106 Project Ver2 - Simulate and Recover
 
 Version 2 of my individual project to test the reliability of the proposed EZ Diffusion Model. By using a Stimulate-and-Recover experiment, I attempted to see if parameters that were estimated by EZ match the original parameters that were used to generate the data in the first place.
 
