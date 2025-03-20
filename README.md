@@ -1,10 +1,12 @@
-# 106 Project Ver2 - Simulate and Recover
+# 106 Project Ver 2
 
-Version 2 of my individual project to test the reliability of the proposed EZ Diffusion Model. By using a Stimulate-and-Recover experiment, I attempted to see if parameters that were estimated by EZ match the original parameters that were used to generate the data in the first place.
+This is Version 2 of my individual project to test the reliability of the proposed EZ Diffusion Model. Being transparent, much of the code is written by Chat GPT for structure, debugging, and variables. 
 
-I used ChatGPT to help structure my repository and fix up and refine code in order to meet the requirements for this project.
+My interpretation of the EZ diffusion model is that it serves as a model of human decision making. Used in Cognitive Sciences, the model is implemented when data is collected about how subjects respond to stimuli and how quickly decisions are made. Key parameters for this model include: the boundary separation a, which represents the amount of information a person needs before they can confidently make a decision. Higher boundaries means the person is more cautious and lower boundaries could mean less accuracy. The Drift Rate v is the rate at which someone gathers evidence that is used for making a decision, with higher drift rates meaning fast and efficient processing. Lastly, Non-decision Time t, represents the time spent on processes that are unrelated to the decision. 
 
-Of course, there are a few steps: Clone respository, run the simulation so results may be saved to "data/results.csv" and the summary will appear in the terminal. If pytest is installed, the test should run with a message confirming so. 
+The simulate and recover portion of this project is to put the EZ diffusion model to the test, confirming it is able to estimate parameters from simulated data. 3 phases ensure reliability: Simulation Phase, Recovery Phase, and Evaluation Phase. The simulation phase uses the parameters we give it to generate values that act as a dataset. The recovery phase tests the EZ diffusion model to generate parameters from the simulated data, which we then compare to the parameters that we gave the simulation test in the first place. Then the evaluation phase determines if the model worked well based on bias and squared error. 
 
-In closing, the analyses of this EZ model reveals a bias to average near zero, squared error decreases as sample size increases, and overall this EZ Diffusion Model results in great foundational strength for other cognitive modeling research and data analysis.
+With my project I hoped to see my recovered values being very close to the true values for larger sample sizes, which makes sense to me because there should be far less variability in the data. Bias should average close to zero and squared error should decrease as the sample size increases, which again is exemplified by the fact that more data means better parameter recovery. 
+
+My project was able to gather parameters and get a good estimate of the originals, there were many errors along the way but overall I believe that the EZ diffusion model can decently predict parameter estimates based on simulated data. 
 
